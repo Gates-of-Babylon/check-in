@@ -50,8 +50,8 @@ module.exports = class HoyoLab {
 			});
 		}
 
-		this.#data = config.data;
-		if (!Array.isArray(this.#data)) {
+		const accounts = config.data;
+		if (!Array.isArray(accounts)) {
 			throw new app.Error({
 				message: "Invalid data provided for HoyoLab must be an array.",
 				args: {
