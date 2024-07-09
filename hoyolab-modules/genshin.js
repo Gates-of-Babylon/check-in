@@ -132,9 +132,10 @@ module.exports = class Genshin extends require("./template.js") {
 				deviceId: account.cookie.deviceId ?? "",
 				deviceFp: account.cookie.deviceFp ?? ""
 			});
-		}
 
-		app.Logger.info(this.fullName, `Logged into ${this.accounts.length} account(s)`);
+			const region = app.Utils.formattedAccountRegion(data.region);
+			app.Logger.info(this.fullName, `Logged into (${data.game_role_id}) ${data.nickname} (${region})`);
+		}
 	}
 
 	async checkAndExecute () {
@@ -352,7 +353,7 @@ module.exports = class Genshin extends require("./template.js") {
 			data: data.awards
 		};
 	}
-	
+
     async redeemCode (accountData, code) {
 		const timeout = Math.random() * 3 + 7;
 		await new Promise(resolve => setTimeout(resolve, timeout * 1000));
