@@ -230,6 +230,14 @@ module.exports = class HoyoLab {
 				reply: "No active accounts found for this type of game."
 			};
 		}
+		
+		const allDisabled = accountData.every(account => account.redeemCode === false);
+		if (allDisabled) {
+			return {
+				success: false,
+				reply: "None of the accounts have redeemCode enabled. Please enable on accounts you wish to redeem codes on."
+			};
+		}
 
 		if (!Array.isArray(codes)) {
 			throw new app.Error({
