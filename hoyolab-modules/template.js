@@ -252,7 +252,8 @@ module.exports = class HoyoLab {
 		const nameMap = {
 			honkai: "HonkaiImpact",
 			genshin: "GenshinImpact",
-			starrail: "StarRail"
+			starrail: "StarRail",
+			nap: "ZenlessZoneZero"
 		};
 
 		return nameMap[this.name] || this.name;
